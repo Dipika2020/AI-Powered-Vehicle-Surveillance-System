@@ -22,6 +22,26 @@ To perform real-time lane detection in a video, the OpenCV Python library is use
 **Hough Line Transformation:** Detects shapes that can be mathematically represented, such as rectangles and lines. This technique detects lane markings represented as lines. The main objective is to detect whether a vehicle is moving in the correct lane. The number plates of vehicles not moving in the correct lane are extracted using the YOLO framework.
 
 ### Number Plate Detection
+**Image Pre-processing**
+- **Gray Scaling**: Converts images to grayscale to speed up processing.
+- **Edge Detection**: Uses the Canny edge method from OpenCV to detect edges in the image.
+- **Contour Detection**: Detects rectangular objects to find the number plate.
+- **License Plate Cropping**: Extracts the region of the number plate from the image.
+- **Image Processing**: Applies several techniques to reduce noise and emphasize key features of license characters.
+- **OCR (Optical Character Recognition)**: Uses Tesseract to extract printed text from images.
+
+**Steps Involved:**
+1. **Gray Scaling**
+2. **Edge Detection**
+3. **Contour Detection**
+4. **License Plate Cropping**
+5. **Image Processing**:
+   - Convert to 255 scale
+   - Convert to grayscale
+   - Blur image using Gaussian Blur
+   - Image thresholding
+   - Dilation
+6. **OCR**: Extracts characters from the license plate.
 
 **Tech Stack:** OpenCV in Python and YOLO framework.
 
